@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Object Copy</title>
+    <script type="text/javascript">
+    function copyObject(originator)
+    {
+            var clonedObject=new Object();
+            for(key in originator)
+            {
+                clonedObject[key]=originator[key];
+            }
+            return clonedObject;
+    }
+    </script>
+</head>
+<body>
+    <script type="text/javascript">
+    console.log("Cloning");
+    var student=new Object();
+    student.roll=1;
+    student.name="Surbhi"
+    var student2=copyObject(student);
+    console.log("After copying:");
+    console.log("Student 1(originator)",student);
+    console.log("Student2(copied object)",student2);
+    student.name="Surbhi Garg";
+    console.log("After modification in student:");
+    console.log("Student 1(originator)",student);
+    console.log("Student2(copied object)",student2);
+   console.log("Direct assignment");
+        var student=new Object();
+        student.roll=1;
+        student.name="Surbhi"
+        var student2=student;
+        console.log("After assignment:");
+        console.log("Student 1(originator)",student);
+        console.log("Student2(copied object)",student2);
+        student.name="Surbhi Garg";
+        console.log("After modification in student:");
+        console.log("Student 1(originator)",student);
+        console.log("Student2(copied object)",student2);
+        </script>
+</body>
+</html>

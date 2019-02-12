@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Simple Interest</title>
+
+</head>
+<body>
+    <p id="input"></p>
+    <p id="demo"></p>
+    <script type="text/javascript">
+        var res=1;
+        var inputs=prompt("Enter amount,interest rate and number of years separated by comma");
+        var inputarr=inputs.split(",");
+        document.getElementById("input").innerHTML="Inputs Received <br/>Amount "+inputarr[0]+" Rate "+inputarr[1]+" Time "+inputarr[2];
+        inputarr.forEach(function(i){
+            res=res*i;
+        });
+        var simpleInterest=res/100;
+        document.getElementById("demo").innerHTML="simple interest is "+simpleInterest;
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Palindrome</title>
+    <script type="text/javascript">
+    function checkPalindrome()
+    {
+        var inputString=prompt("Enter string to be checked");
+        var length=inputString.length;
+        var status=true;
+        if(length%2!=0)
+        {
+            for(i=0;i<length/2;i++)
+            {
+                if(inputString.charAt(i)!==inputString.charAt(length-(i+1)))
+                {
+                    status=false;
+                    break;
+                }
+            }
+        }
+        else
+        {
+            for(i=0;i<=length/2;i++)
+            {
+                if(inputString.charAt(i)!==inputString.charAt(length-(i+1)))
+                {
+                    status=false;
+                    break;
+                }
+            }
+        }
+        if(status)
+        {
+            document.getElementById("result").innerHTML=inputString+" is palindrome";
+        }
+        else
+        {
+            document.getElementById("result").innerHTML=inputString+" is <b>NOT</b> a palindrome.";
+        }
+    }
+    </script>
+</head>
+<body>
+    <p id="result"></p>
+    <script>checkPalindrome();</script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Object list</title>
+
+</head>
+<body>
+        <script type="text/javascript">
+            function Employee(name,age,salary,dob)
+            {
+                this.name=name;
+                this.age=age;
+                this.salary=salary;
+                this.dob=dob;
+            }
+            //part a
+            var list=[new Employee("Surbhi","23","6000","24-08-1995"),
+            new Employee("Rishabh","24","4000","12-04-1994"),
+            new Employee("Vagish","25","6000","24-12-1993"),
+            new Employee("Gagan","24","4500","11-02-1995"),
+            new Employee("Ram","21","900","24-08-1997"),
+            new Employee("Ruchi","23","850","08-12-1995"),
+            ];
+
+
+            //part b
+            var highSalariedEmployees=list.filter(employee=>employee.salary>5000);
+           console.log("Employees having salary>5000",highSalariedEmployees);
+
+            //partc
+           var group=[];
+            var groupedEmployees={};
+            list.forEach(function(emp){if(!group.includes(emp.age))group.push(emp.age)});//finding all unique groups possible
+            for(let age of group)
+            {
+                groupedEmployees[age]=new Array();
+                for(let emp of list)
+                {
+                    if(age===emp.age)
+                    {
+                        groupedEmployees[age].push(emp);
+                    }
+                }
+            }
+            console.log("Employees grouped on the basis of age",groupedEmployees);
+
+            //partd
+
+            var lowSalHighAge=list.filter(employee=>employee.age>20 && employee.salary<1000).map(function(ele){ele.salary*=5;return ele;});
+            console.log("Employees having age>20 and salary<1000 mapped with 5 times salary",lowSalHighAge);
+
+            
+
+        </script>
+</body>
+</html>

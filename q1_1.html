@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Simple Interest</title>
+    <script>
+        function calcSI()
+        {
+            var principle=prompt("Enter principle");
+            var rate=prompt("Enter rate");
+            var time=prompt("Enter time");
+            var res=(principle*rate*time)/100;
+            document.getElementById("input").innerHTML="Inputs received:<br/> Amount "+principle+" Rate "+rate+" Time "+time;
+            document.getElementById("result").innerHTML="Simple Interest: "+res;
+        }
+    </script>
+</head>
+<body>
+    <p id="input"></p>
+    <p id="result"></p>
+    <script>calcSI()</script>
+</body>
+</html>
