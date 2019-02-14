@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Q17</title>
+    <style>
+        #slider {
+            opacity: 1;
+            width: 500px;
+            height: 200px;
+            background-color: blueviolet;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="slider">Hover at me to start slideshow<img id="slide-img"></div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script>
+
+        $(document).ready(function () {
+            var imageArray = ["http://placekitten.com/500/200",
+                "http://placekitten.com/499/200",
+                "http://placekitten.com/501/200",
+                "http://placekitten.com/500/199"]
+            $("#slider").hover(function () {
+                var image = $("#slide-img");
+                image.animate({ opacity: 0 }, 500, function () {
+                    var random = imageArray[Math.floor(Math.random() * imageArray.length)];
+                    image.attr("src", random);
+                    image.css('opacity', 1);
+                    $("#slider").html(image);
+
+
+                })
+            })
+        });
+
+    </script>
+
+</body>
+
+</html>

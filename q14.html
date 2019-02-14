@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Q14</title>
+    <style>
+        .cell
+        {
+            border:1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <table style="border:1px solid black;padding: 1em;border-collapse: collapse">
+        <tr>
+            <td class="cell">9</td>
+            <td class="cell">11</td>
+        </tr>
+        <tr>
+            <td class="cell">8</td>
+            <td class="cell">12</td>
+        </tr>
+        <tr>
+            <td class="cell">16</td>
+            <td class="cell">7</td>
+        </tr>
+        <tr>
+            <td class="cell">13</td>
+            <td class="cell">12</td>
+        </tr>
+    </table>
+
+
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+    <script type="text/javascript">
+    $(".cell").each(function(index,ele){
+        if($(ele).text()>10)$(ele).css("color","blue");
+
+    })
+        
+    
+     
+    </script>
+    
+</body>
+</html>

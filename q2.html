@@ -4,26 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Palindrome</title>
-    <script type="text/javascript">
-    function checkPalindrome()
-    {
-        var inputString=prompt('Enter string to be checked');
-        var reverseString=inputString.split("").reverse().join("");
-        console.log(reverseString);
-        if(inputString===reverseString)
-        {
-            document.getElementById("result").innerHTML=inputString+" is a palindrome";
-        }
-        else
-        {
-            document.getElementById("result").innerHTML=inputString+" is <b>NOT</b> a palindrome";
-        }
+    <title>Q2</title>
+    <style>
+    .load{
+        color:red;
     }
-    </script>
+    </style>
+              
 </head>
 <body>
-    <p id="result"></p>
-    <script>checkPalindrome();</script>
+<p id="test">A class will be added</p>
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+    <script type="text/javascript">
+    $(function(){
+        $("#test").addClass("load")
+    });
+    </script>
+    
 </body>
 </html>

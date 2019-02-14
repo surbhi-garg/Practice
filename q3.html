@@ -1,21 +1,26 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Area of circle</title>
-    <script type="text/javascript">
-    function calculateCircleArea()
-    {
-        var radius=prompt("Enter radius of circle:");
-        var pi=3.14;
-        document.getElementById("result").innerHTML="Area of circle is: "+ pi*radius*radius+"cm<sup>2</sup>";
-    }
-    </script>
+    <title>Q3</title>
 </head>
 <body>
-    <p id="result"></p>
-    <script>calculateCircleArea();</script>
+<p class="test-new">Color will be changed</p>
+<p class="color-new">Color will be changed</p>
+<p class="color">Color will not change</p>
+
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+    <script type="text/javascript">
+    $(function(){
+      $("[class$='-new']").css({'color':'red'});
+    });
+    </script>
+    
 </body>
 </html>
