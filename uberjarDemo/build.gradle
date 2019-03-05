@@ -1,0 +1,23 @@
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+dependencies{
+    // https://mvnrepository.com/artifact/com.google.cloud/google-cloud-core
+    compile group: 'com.google.cloud', name: 'google-cloud-core', version: '1.64.0'
+
+}
+//for creating uber jar
+jar
+        {
+            jar {
+                manifest {
+                    attributes "Main-Class": "com.ttn.fatjar.Application"
+                }
+
+                from {
+                    configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+                }
+            }
+        }
