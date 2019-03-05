@@ -1,0 +1,157 @@
+Setup & import to intellij idea
+-----------------------------------
+1) Create a directory, say gradleEx
+2) Open terminal and cd into gradleEx
+3) Run gradle init
+4) Open intellij
+5) File--->Open--->gradleEx--->Select build.gradle-->Open as project--->Ok
+
+
+Question-1
+----------------
+1)Open build.gradle
+2)Add the following code to it
+apply plugin:'java'
+
+version=1.0;
+jar {
+    manifest {
+        attributes("Implementation-Title": "Gradle",
+                "Implementation-Version": version,
+                "Main-Class": "com.ttn.javaplugin.HelloWorld"
+
+        )
+    }
+}
+3)Create the following directory structure
+	src
+	|
+	------>main
+		|
+		------->java
+			|
+			----->com.ttn.javaplugin
+					|
+					------>HelloWorld.java
+4)Run jar task
+5) go to terminal and type following commands:-
+-->cd gradleEx/build/libs
+-->java -jar gradleEx-1.0.jar
+
+References
+----------------
+https://docs.gradle.org/current/userguide/java_plugin.html
+
+Question-2
+-------------------
+1)Open build.gradle
+2)Add the following code to it
+apply plugin:"idea"
+apply plugin: "java"
+
+sourceSets {
+    helper
+            {
+                java
+                        {
+                            srcDirs=['src/main/java2']
+                        }
+            }
+    main{
+        java{
+            srcDirs=['src/main/java1']
+            compileClasspath+=helper.output //To add class files to compile path
+        }
+    }
+
+}
+jar
+        {
+            from sourceSets.helper.output //so that jar contains class files of helper as well as main sourcseSet
+            from sourceSets.main.output
+            manifest{
+                attributes(
+                        "Main-Class":"Main"
+                )
+            }
+        }
+//Here I have considered helper as another directory containing other files that will be used in production code.
+Project structure
+src/main/java2-->User.java
+src/man/java1-->Greeter.java using object of User.java in one of the methods and Main Class
+3)Run jar task
+4)Run the jar file created
+References
+------------
+-->https://dzone.com/articles/gradle-goodness-source-sets-as-intellij-idea-modul
+-->https://stackoverflow.com/questions/46529438/how-do-i-use-gradle-to-build-a-special-jar-with-only-a-subset-of-classes
+
+Question-3
+----------------
+1)Add the following code to build.gradle after adding two files in src/main/resources
+apply plugin :"java"
+sourceSets {
+    main {
+        resources{
+            srcDirs = ['src/main/resources']
+            exclude 'file2.xml'
+        }
+    }
+}
+
+2)Run jar task
+3)Run jar -tf <jar-name>in terminal and we will notice that file is not included in jar
+
+Question-4
+-------------
+Uber Jar
+----------
+a fat jar (also known as uber-jar) is a self-sufficient archive which contains both classes and dependencies needed to run an application.
+1)Add the following code to build.gradle
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+dependencies{
+    // https://mvnrepository.com/artifact/com.google.cloud/google-cloud-core
+    compile group: 'com.google.cloud', name: 'google-cloud-core', version: '1.64.0'
+
+}
+//for creating uber jar
+jar
+        {
+            jar {
+                manifest {
+                    attributes "Main-Class": "com.ttn.fatjar.Application"
+                }
+
+                from {
+                    configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+                }
+            }
+        }
+2)Run jar task
+3)java -tf <jarname> in terminal to see the contents and verify if all dependencies are added.
+
+Question-5
+---------------
+Add the following code to build.gradle
+//Question-5
+repositories {
+    jcenter()
+}
+Question-6
+----------------
+Add the following code to build.gradle
+//Question-6
+apply from:'mytask.gradle'
+
+
+
+
+
+
+
+
+
