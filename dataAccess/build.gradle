@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+}
+
+group 'com.demo'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.46'
+    compile group: 'org.springframework', name: 'spring-core', version: '5.0.2.RELEASE'
+    compile group: 'org.springframework', name: 'spring-context', version: '5.0.2.RELEASE'
+    // https://mvnrepository.com/artifact/org.springframework/spring-jdbc
+    compile group: 'org.springframework', name: 'spring-jdbc', version: '5.0.2.RELEASE'
+    // https://mvnrepository.com/artifact/commons-dbcp/commons-dbcp
+    compile group: 'org.apache.commons', name: 'commons-dbcp2', version: '2.1'
+
+    // https://mvnrepository.com/artifact/org.springframework/spring-orm
+    compile group: 'org.springframework', name: 'spring-orm', version: '4.0.3.RELEASE'
+    // https://mvnrepository.com/artifact/org.hibernate/hibernate-core
+    compile group: 'org.hibernate', name: 'hibernate-core', version: '5.4.1.Final'
+
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
