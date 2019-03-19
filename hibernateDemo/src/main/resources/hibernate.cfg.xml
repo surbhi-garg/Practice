@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!--Database connection settings -->
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/hibernateDemo</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">root@123</property>
+
+        <!--JDBC connection pool-->
+        <property name="connection.pool_size">10</property>
+
+        <!-- SQL Dialect-->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+
+        <!--echo all executed SQL-->
+        <property name="show_sql">true</property>
+
+        <!--drop or re-create database schema at startup-->
+        <!--Question2and3-->
+        <property name="hbm2ddl.auto">create</property>
+        <!--Question4-->
+        <!--<property name="hbm2ddl.auto">update</property>-->
+        <!--Question5-->
+        <!--<property name="hbm2ddl.auto">create-drop</property>-->
+
+        <!--Annotated entity class-->
+        <mapping class="com.demo.hibernate.Author"/>
+        <mapping class="com.demo.hibernate.Book"/>
+
+        <mapping class="com.demo.hibernate.question16.unidirectional.Author"/>
+        <mapping class="com.demo.hibernate.question16.bidirectional.Book"/>
+        <mapping class="com.demo.hibernate.question16.bidirectional.Author"/>
+
+        <mapping class="com.demo.hibernate.question16.noaddtionaltable.Book"/>
+        <mapping class="com.demo.hibernate.question16.noaddtionaltable.Author"/>
+
+        <mapping class="com.demo.hibernate.question16.cascade.Book"/>
+        <mapping class="com.demo.hibernate.question16.cascade.Author"/>
+
+        <mapping class="com.demo.hibernate.question17.Book"/>
+        <mapping class="com.demo.hibernate.question17.Author"/>
+
+
+
+    </session-factory>
+</hibernate-configuration>
