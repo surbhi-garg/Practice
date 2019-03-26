@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee List</title>
+</head>
+<body>
+<!--ForQuestion6 header-->
+<div th:replace="/fragments/header.html ::header"></div>
+<table>
+    <tr>
+        <th>
+            FirstName
+        </th>
+        <th>
+            LastName
+        </th>
+    </tr>
+    <tr th:each="employee:${employeeList}">
+        <td th:text="${employee.firstName}"></td>
+        <td th:text="${employee.lastName}"></td>
+    </tr>
+</table>
+<!--ForQuestion6-footer-->
+<div th:replace="/fragments/footer.html ::footer"></div>
+</body>
+</html>

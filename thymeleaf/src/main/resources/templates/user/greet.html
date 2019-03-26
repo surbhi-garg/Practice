@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Greet</title>
+</head>
+<body>
+<div th:if="${isAdmin}">
+    Hello Admin
+</div>
+<div th:unless="${isAdmin}">
+    Hello User
+</div>
+
+<!--Question9-->
+<span th:each="userType:${T(com.demo.thymeleaf.enums.UserType).values()}">
+    <p th:if="${userType.name()}=='USER' ">Hello User</p>
+    <p th:if="${userType.name()}=='ADMIN' ">Hello ADMIN</p>
+    <p th:if="${userType.name()}=='SUPER_ADMIN' ">Hello Super admin</p>
+</span>
+
+</body>
+</html>

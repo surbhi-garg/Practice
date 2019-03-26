@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ServerTime</title>
+    <script
+            src="http://code.jquery.com/jquery-2.2.4.min.js"
+            integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+            crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $(function(){
+            var time=$.get({
+                url:"/getServerTime"
+            });
+            time.done(function(data){
+                if(data)
+                {
+                    $("#serverTime").html(data);
+                }
+            });
+
+            time.fail(function (jqXHR, textStatus) {
+                console.log("Error in fetching time from server");
+            });
+        })
+    </script>
+</head>
+<body>
+<p id="serverTime"></p>
+</body>
+</html>
